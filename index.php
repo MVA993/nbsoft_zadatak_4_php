@@ -1,24 +1,24 @@
 <?php
 function listFolderFiles($dir){
-    $flds = scandir($dir);
+    $folders = scandir($dir);
 
-    unset($flds[array_search('.', $flds, true)]);
-    unset($flds[array_search('..', $flds, true)])
-        
-    if (count($flds) < 1){
+    unset($folders[array_search('.', $folders, true)]);
+    unset($folders[array_search('..', $folders, true)]);
+
+    if (count($folders) < 1){
         return;
     }
 
     echo '<ul>';
-    foreach($flds as $fld){
-        $path = $dir.'/'.$fld;
+    foreach($folders as $folder){
+        $path = $dir.'/'.$folder;
         if(!is_dir($path)){
             echo "  <li>
-                    <a href='$path' target='_blank'>".$fld."</a>
+                    <a href='$path' target='_blank'>".$folder."</a>
                     </li>";
         }else{
             echo "  <li>
-                    ".$fld."
+                    ".$folder."
                     </li>";
             listFolderFiles($path);
         }
