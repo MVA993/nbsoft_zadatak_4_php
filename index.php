@@ -3,9 +3,8 @@ function listFolderFiles($dir){
     $flds = scandir($dir);
 
     unset($flds[array_search('.', $flds, true)]);
-    unset($flds[array_search('..', $flds, true)]);
-
-    // prevent empty ordered elements
+    unset($flds[array_search('..', $flds, true)])
+        
     if (count($flds) < 1){
         return;
     }
